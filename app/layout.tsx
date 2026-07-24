@@ -1,10 +1,12 @@
-import { Geist, Geist_Mono } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import { shadcn } from "@clerk/ui/themes"
+import { Geist, Geist_Mono } from "next/font/google"
 
+import "@clerk/ui/themes/shadcn.css"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
+import { TooltipProvider } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
@@ -31,19 +33,17 @@ export default function RootLayout({
       )}
     >
       <body>
-        <ThemeProvider>
-          <ClerkProvider
-            appearance={{ theme: shadcn }}
-            taskUrls={{
-              "choose-organization": "/choose-organization",
-            }}
-            signInUrl="/sign-in"
-            signUpUrl="/sign-up"
-          >
-            {children}
-          </ClerkProvider>
-          <Toaster />
-        </ThemeProvider>
+        <ClerkProvider
+          appearance={{ theme: shadcn }}
+          taskUrls={{ "choose-organization": "/choose-organization" }}
+        >
+          <ThemeProvider>
+            <TooltipProvider>
+              {children}
+              <Toaster />
+            </TooltipProvider>
+          </ThemeProvider>
+        </ClerkProvider>
       </body>
     </html>
   )
