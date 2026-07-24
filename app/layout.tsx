@@ -1,18 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google"
-import {
-  ClerkProvider,
-  Show,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs"
+import { ClerkProvider } from "@clerk/nextjs"
 import { shadcn } from "@clerk/ui/themes"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -44,19 +37,6 @@ export default function RootLayout({
             signInUrl="/sign-in"
             signUpUrl="/sign-up"
           >
-            <header className="flex h-16 items-center justify-end gap-4 p-4">
-              <Show when="signed-out">
-                <SignInButton mode="redirect" />
-                <SignUpButton mode="redirect">
-                  <Button className="h-10 cursor-pointer rounded-full bg-[#6c47ff] px-4 text-sm font-medium text-white sm:h-12 sm:px-5 sm:text-base">
-                    Sign Up
-                  </Button>
-                </SignUpButton>
-              </Show>
-              <Show when="signed-in">
-                <UserButton />
-              </Show>
-            </header>
             {children}
           </ClerkProvider>
           <Toaster />
