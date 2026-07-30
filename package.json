@@ -20,7 +20,8 @@
     "@clerk/nextjs": "^7.6.0",
     "@clerk/ui": "^1.25.8",
     "@shadcn/react": "^0.2.1",
-    "@trigger.dev/sdk": "4.5.8",
+    "@trigger.dev/react-hooks": "^4.5.9",
+    "@trigger.dev/sdk": "4.5.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -48,7 +49,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@trigger.dev/build": "4.5.8",
+    "@trigger.dev/build": "4.5.9",
     "@types/node": "^20",
     "@types/pg": "^8.20.0",
     "@types/react": "^19",
