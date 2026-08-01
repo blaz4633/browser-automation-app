@@ -17,7 +17,7 @@ export function Room({
   return (
     <LiveblocksProvider
       throttle={16} // 16ms is the recommended throttle for React
-      publicApiKey={process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_API_KEY!}
+      authEndpoint="/api/liveblocks/auth"
     >
       <RoomProvider id={roomId}>
         <ClientSideSuspense fallback={<div>Loading…</div>}>
